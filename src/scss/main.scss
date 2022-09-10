@@ -1,1 +1,39 @@
 @import "~normalize.css";
+body {
+  background-color: #383b46;
+}
+
+.box {
+  background-color: #131620;
+  border: 10px #75fb4c solid;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 8px 6px -6px black;
+  &__name {
+    color: white;
+    text-align: center;
+    font-size: 30px;
+    margin: 35px 0 35px 0;
+  }
+}
+.div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  &__box {
+    color: white;
+  }
+  &__items {
+    color: #ffff54;
+  }
+}
+.input {
+  width: 48px;
+  background-color: transparent;
+  color: white;
+}
