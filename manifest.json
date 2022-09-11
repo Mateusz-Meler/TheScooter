@@ -1,24 +1,36 @@
 {
   "name": "The Scooter",
   "short_name": "The Scooter",
-  "theme_color": "#131620",
-  "background_color": "#131620",
+  "theme_color": "#383b46",
+  "background_color": "#383b46",
   "display": "standalone",
   "orientation": "portrait",
   "scope": "/TheScooter/",
   "start_url": "/TheScooter/",
   "icons": [
     {
-      "src": "pwa/manifest-icon-192.png",
+      "src": "pwa/manifest-icon-192.maskable.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "maskable any"
+      "purpose": "any"
     },
     {
-      "src": "pwa/manifest-icon-512.png",
+      "src": "pwa/manifest-icon-192.maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "pwa/manifest-icon-512.maskable.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "maskable any"
+      "purpose": "any"
+    },
+    {
+      "src": "pwa/manifest-icon-512.maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ]
 }
