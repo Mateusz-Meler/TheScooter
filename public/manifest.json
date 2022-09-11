@@ -1,12 +1,12 @@
 {
-  "name": "WTF: PWA",
-  "short_name": "WTF: PWA",
+  "name": "The Scooter",
+  "short_name": "The Scooter",
   "theme_color": "#131620",
   "background_color": "#131620",
   "display": "standalone",
   "orientation": "portrait",
-  "scope": "/wtf-webpack-starter/",
-  "start_url": "/wtf-webpack-starter/",
+  "scope": "/TheScooter/",
+  "start_url": "/TheScooter/",
   "icons": [
     {
       "src": "pwa/manifest-icon-192.png",
