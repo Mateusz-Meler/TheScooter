@@ -25,6 +25,7 @@ charging.addEventListener("change", (e) => {
     }
     if (mileage <= 41 && mileage >= 0) {
       drive = 41 - mileage;
+      drive = drive.toFixed(1) * 1;
       document.querySelector(".drive").innerHTML = drive;
       if (drive <= 5) {
         document.querySelector(".drive").classList.add("red");
