@@ -23,12 +23,11 @@ charging.addEventListener("change", (e) => {
     } else {
       document.querySelector(".mileage").innerHTML = 0;
     }
-    if (mileage >= 0) {
+    if (mileage <= 41 && mileage >= 0) {
       drive = 41 - mileage;
       document.querySelector(".drive").innerHTML = drive;
       if (drive <= 5) {
         document.querySelector(".drive").classList.add("red");
-        // console.log("mniejsze niż 5 !");
       } else {
         document.querySelector(".drive").classList.remove("red");
       }
