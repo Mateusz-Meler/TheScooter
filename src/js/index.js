@@ -5,11 +5,12 @@ import "../scss/main.scss";
 // registerSW();
 
 /* place your code below */
-console.log(`Everything's fine !`);
 const total = document.getElementById("total");
 const charging = document.getElementById("charging");
 let mileage = document.querySelector(".mileage");
+let drive = document.querySelector(".drive");
 mileage.textContent = 0;
+drive.textContent = 0;
 
 charging.addEventListener("change", (e) => {
   const chargingValue = e.target.value;
@@ -18,10 +19,21 @@ charging.addEventListener("change", (e) => {
     if (chargingValue && totalValue) {
       mileage = totalValue - chargingValue;
       mileage = mileage.toFixed(1) * 1;
-      console.log(mileage);
       document.querySelector(".mileage").innerHTML = mileage;
     } else {
       document.querySelector(".mileage").innerHTML = 0;
     }
+    if (mileage >= 0) {
+      drive = 41 - mileage;
+      document.querySelector(".drive").innerHTML = drive;
+      if (drive <= 5) {
+        document.querySelector(".drive").classList.add("red");
+        // console.log("mniejsze niż 5 !");
+      } else {
+        document.querySelector(".drive").classList.remove("red");
+      }
+    }
   });
 });
+
+console.log(`Everything's fine !`);
