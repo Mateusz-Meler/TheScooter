@@ -1,8 +1,8 @@
 {
   "name": "The Scooter",
   "short_name": "The Scooter",
-  "theme_color": "#131620",
-  "background_color": "#131620",
+  "theme_color": "#383b46",
+  "background_color": "#383b46",
   "display": "standalone",
   "orientation": "portrait",
   "scope": "/TheScooter/",
