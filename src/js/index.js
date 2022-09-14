@@ -23,7 +23,7 @@ charging.addEventListener("input", (e) => {
   total.addEventListener("input", (e) => {
     let totalValue = e.target.value;
 
-    if (chargingValue > 0 && totalValue > 0) {
+    if (chargingValue > 0 || totalValue > 0) {
       mileage = totalValue - chargingValue;
       mileage = mileage.toFixed(1) * 1;
       document.querySelector(".mileage").innerHTML = mileage;
@@ -43,23 +43,19 @@ charging.addEventListener("input", (e) => {
     } else {
       document.querySelector(".drive").classList.remove("red");
     }
-
-    save.addEventListener("click", () => {
-      if (total.value && charging.value) {
-        localStorage.setItem("total", total.value);
-        localStorage.setItem("charging", charging.value);
-        console.log("masz coś w storage");
-      }
-    });
-    load.addEventListener("click", () => {
-      totalStorage = localStorage.getItem("total");
-      chargingStorage = localStorage.getItem("charging");
-      let jSon = JSON.parse(totalStorage);
-      let jSon2 = JSON.parse(chargingStorage);
-      total.value = jSon;
-      charging.value = jSon2;
-    });
   });
 });
+save.addEventListener("click", () => {
+  if (total.value && charging.value) {
+    localStorage.setItem("total", total.value);
+    localStorage.setItem("charging", charging.value);
+  }
+});
+load.addEventListener("click", () => {
+  totalStorage = localStorage.getItem("total");
+  chargingStorage = localStorage.getItem("charging");
+  total.value = totalStorage;
+  charging.value = chargingStorage;
+});
 
-// console.log(`working !`);
+console.log(`working !`);
