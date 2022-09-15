@@ -17,34 +17,14 @@ let chargingStorage = 0;
 document.querySelector(".mileage").innerHTML = 0;
 document.querySelector(".drive").innerHTML = 0;
 
-charging.addEventListener("input", (e) => {
-  let chargingValue = e.target.value;
-
-  total.addEventListener("input", (e) => {
-    let totalValue = e.target.value;
-
-    if (chargingValue > 0 || totalValue > 0) {
-      mileage = totalValue - chargingValue;
-      mileage = mileage.toFixed(1) * 1;
-      document.querySelector(".mileage").innerHTML = mileage;
-      console.log(typeof mileage);
-    }
-    if (mileage <= 41 && mileage >= 0) {
-      drive = 41 - mileage;
-      drive = drive.toFixed(1) * 1;
-      document.querySelector(".drive").innerHTML = drive;
-    } else {
-      document.querySelector(".mileage").innerHTML = 0;
-      document.querySelector(".drive").innerHTML = 0;
-    }
-
-    if (drive <= 5) {
-      document.querySelector(".drive").classList.add("red");
-    } else {
-      document.querySelector(".drive").classList.remove("red");
-    }
-  });
+charging.addEventListener("input", () => {
+  calculateScooterRange();
 });
+
+total.addEventListener("input", () => {
+  calculateScooterRange();
+});
+
 save.addEventListener("click", () => {
   if (total.value && charging.value) {
     localStorage.setItem("total", total.value);
@@ -56,6 +36,30 @@ load.addEventListener("click", () => {
   chargingStorage = localStorage.getItem("charging");
   total.value = totalStorage;
   charging.value = chargingStorage;
+  calculateScooterRange();
 });
 
-console.log(`working !`);
+function calculateScooterRange() {
+  const totalValue = total.value;
+  const chargingValue = charging.value;
+
+  if (chargingValue > 0 || totalValue > 0) {
+    mileage = totalValue - chargingValue;
+    mileage = mileage.toFixed(1) * 1;
+    document.querySelector(".mileage").innerHTML = mileage;
+  }
+  if (mileage <= 41 && mileage >= 0) {
+    drive = 41 - mileage;
+    drive = drive.toFixed(1) * 1;
+    document.querySelector(".drive").innerHTML = drive;
+  } else {
+    document.querySelector(".mileage").innerHTML = 0;
+    document.querySelector(".drive").innerHTML = 0;
+  }
+
+  if (drive <= 5) {
+    document.querySelector(".drive").classList.add("red");
+  } else {
+    document.querySelector(".drive").classList.remove("red");
+  }
+}
