@@ -103,6 +103,7 @@ svg {
   filter: url("#gooey");
   position: relative;
   background-color: #00ff80;
+  z-index: 1000;
 }
 #gooey-button:focus {
   outline: none;
